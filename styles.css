@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+/* ------------------------------------------------------------------ */
+/* Réplica de la presentación original (pptx). El lienzo es de        */
+/* 1280 x 720 px (canvasWidth en slides.md), igual que la diapositiva */
+/* original (12192000 x 6858000 EMU / 9525), por lo que todas las     */
+/* medidas de abajo son las del pptx convertidas a px.                */
+/* ------------------------------------------------------------------ */
+
+.colab-slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: Arial, 'Liberation Sans', Helvetica, sans-serif;
+  color: #000000;
+}
+
+.colab-slide img {
+  position: absolute;
+  max-width: none;
+  display: block;
+  user-select: none;
+}
+
+/* Banda superior: recorte de la portada a ancho completo, de         */
+/* 1280 x 102.6 px como en el master original. Se usa la franja        */
+/* superior de la portada nueva porque deja los logos blancos sobre    */
+/* el follaje oscuro (el recorte original quedaba sobre nubes).        */
+.colab-banner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: 102.6px;
+  overflow: hidden;
+}
+.colab-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 24, 52, 0.28);
+  pointer-events: none;
+}
+.colab-banner img {
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: auto;
+}
+
+/* Logos de la banda (mismo hueco que los logos originales) */
+.colab-logos {
+  left: 914.6px;
+  top: 16.2px;
+  height: 51.7px;
+  width: auto;
+}
+
+/* Título de las diapositivas de contenido: Arial negrita 32 pt, #1B7DA1 */
+.colab-title {
+  position: absolute;
+  left: 59.2px;
+  top: 122.2px;
+  width: 1034.8px;
+  height: 59.2px;
+  box-sizing: border-box;
+  padding: 23.26px;
+  display: flex;
+  align-items: center;
+  font-size: 42.67px;
+  font-weight: 700;
+  line-height: normal;
+  color: #1b7da1;
+  white-space: nowrap;
+}
+
+/* ------------------------------ Portada ------------------------------ */
+
+.colab-cover-bg {
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: 720px;
+  object-fit: cover;
+}
+
+/* Velo suave: la portada nueva es más clara que la original y el     */
+/* texto/logos blancos necesitan contraste sobre cielo, nubes y calle. */
+.colab-cover-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(6, 24, 52, 0.42) 0, rgba(6, 24, 52, 0) 150px),
+    linear-gradient(to top, rgba(6, 24, 52, 0.62) 0, rgba(6, 24, 52, 0) 230px),
+    radial-gradient(ellipse 420px 130px at 966px 296px, rgba(6, 24, 52, 0.5) 0, rgba(6, 24, 52, 0) 100%);
+}
+
+.colab-cover-logos {
+  left: 765px;
+  top: 27px;
+  height: 70px;
+  width: auto;
+}
+
+.colab-cover-title {
+  position: absolute;
+  left: 659.9px;
+  top: 257.1px;
+  width: 612.9px;
+  height: 76.9px;
+  box-sizing: border-box;
+  padding: 4.8px 9.6px;
+  display: flex;
+  align-items: flex-end;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 33.33px;
+  line-height: 45px;
+  color: #ffffff;
+  white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(6, 24, 52, 0.55);
+}
+
+.colab-cover-author {
+  position: absolute;
+  left: 850px;
+  top: 600px;
+  width: 382.7px;
+  padding-left: 2.67px;
+  font-family: 'Trebuchet MS', 'Fira Sans', Arial, sans-serif;
+  font-size: 26.67px;
+  line-height: 36px;
+  color: #ffffff;
+  white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(6, 24, 52, 0.55);
+}
+.colab-cover-author p {
+  margin: 0;
+}
+
+/* --------------------- Diapositiva del notebook ---------------------- */
+
+.colab-url {
+  position: absolute;
+  left: 82.5px;
+  top: 204.7px;
+  font-size: 42.67px;
+  line-height: 44px;
+  color: #000000;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.colab-label {
+  position: absolute;
+  font-size: 31.35px;
+  line-height: 36px;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.colab-lines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: 720px;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Oculta la UI nativa de navegación de Slidev (igual que la           */
+/* presentación de preparación de ambiente): solo queda el número de   */
+/* página discreto de global-bottom.vue.                               */
+/* ------------------------------------------------------------------ */
+#slidev-goto-dialog {
+  display: none !important;
+}
+
+#page-root nav {
+  display: none !important;
+}
+
+/* ------------------ Componentes (sustituyen imágenes de texto) ------------------ */
+.cx-h2{position:absolute;left:59px;font-size:38px;font-weight:700;color:#1f2937;line-height:1.2;white-space:nowrap}
+.cx-lead{position:absolute;left:90px;width:1100px;top:206px;margin:0;font-size:29px;line-height:1.4;text-align:center;color:#475569}
+.cx-cards{position:absolute;left:59px;top:398px;width:1162px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cx-card{display:flex;align-items:center;gap:22px;height:130px;padding:0 26px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.cx-card-ic{flex:none;width:64px}
+.cx-card-t{font-size:28px;font-weight:700;color:#111827;line-height:1.15}
+.cx-card-d{margin-top:6px;font-size:21px;line-height:1.3;color:#374151}
+.cx-eq{position:absolute;left:0;top:270px;width:1280px;height:230px;display:flex;align-items:center;justify-content:center;gap:34px}
+.cx-eq-i{display:flex;flex-direction:column;align-items:center}
+.cx-eq-i svg,.cx-co{width:100%;height:auto;display:block}
+.cx-cap{margin-top:6px;font-size:26px;line-height:1.15;text-align:center;color:#1f2937}
+.cx-op{font-size:64px;font-weight:700;color:#1f2937;line-height:1}
+.cx-mock{position:absolute;left:59px;top:244px;width:780px;height:300px;background:#fff;border:1px solid #cbd5e1;border-radius:10px;box-shadow:0 4px 14px rgba(0,0,0,.12);font-size:18px;color:#374151;overflow:visible}
+.cx-mh{display:flex;align-items:center;gap:14px;padding:10px 16px;border-bottom:1px solid #e5e7eb}
+.cx-mh .cx-co{width:52px;flex:none}
+.cx-mf{font-size:22px;font-weight:700;color:#111827}.cx-mf i{font-style:normal;color:#9ca3af}
+.cx-mm{display:flex;gap:16px;margin-top:2px;font-size:17px}
+.cx-mr{margin-left:auto;display:flex;gap:22px;font-size:18px}
+.cx-mb{display:flex;align-items:center;gap:22px;padding:10px 16px;border-bottom:1px solid #e5e7eb;font-size:18px}
+.cx-mb em{flex:1}
+.cx-mbody{padding:22px 24px}
+.cx-cell{height:96px;background:#f3f4f6;border:1px solid #d1d5db;border-radius:6px;display:flex;align-items:center;padding-left:14px}
+.cx-play{width:42px;height:42px;border-radius:50%;background:#374151;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+.cx-bd{position:absolute;width:36px;height:36px;border-radius:50%;background:#f9ab00;color:#1f2937;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.cx-leg{position:absolute;left:880px;top:244px;width:341px;display:flex;flex-direction:column;gap:16px}
+.cx-leg div{display:flex;align-items:center;gap:14px;font-size:24px;font-weight:700;color:#111827;line-height:1.15}
+.cx-leg .cx-bd{position:static;flex:none}
+.cx-note{position:absolute;left:880px;top:416px;width:341px;box-sizing:border-box;padding:14px 18px;background:#fef3c7;border-left:5px solid #f9ab00;border-radius:8px;font-size:21px;line-height:1.3;color:#1f2937}
+.cx-libs{position:absolute;left:59px;top:588px;width:1162px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cx-lib{display:flex;flex-direction:column;justify-content:center;align-items:center;height:96px;border-radius:12px;text-align:center;border:1px solid}
+.cx-lib b{font-size:23px;color:#111827}.cx-lib span{font-size:20px;color:#374151;margin-top:4px}
+.cx-blue{background:#eff6ff;border-color:#bfdbfe}.cx-violet{background:#f5f3ff;border-color:#ddd6fe}.cx-mint{background:#ecfdf5;border-color:#a7f3d0}.cx-peach{background:#fff7ed;border-color:#fed7aa}
+.cx-field{position:absolute;left:60px;top:192px;width:1160px;height:510px}
+.cx-field svg{position:absolute;inset:0;width:100%;height:100%}
+.cx-pos{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;background:#fff;border:2px solid #1b7da1;border-radius:9px;padding:5px 14px;font-size:21px;color:#111827;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.cx-pos b{color:#1b7da1}
+
+/* ---- Ajustes: centrado y correcciones ---- */
+.colab-title{left:0;width:1280px;padding:23px 0;justify-content:center}
+.colab-url{left:0;width:1280px;text-align:center;display:block}
+.cx-h2{left:0;width:1280px;text-align:center}
+.cx-eq{gap:40px}
+.cx-eq-i svg{width:auto;height:150px;max-width:none}
+.cx-eq-i:last-child svg{height:100px}
+.cx-mock{left:80px;width:700px;top:240px}
+.cx-mh .cx-co{width:52px;height:28px}
+.cx-leg{left:820px;top:246px;width:380px;gap:12px}
+.cx-note{left:820px;top:386px;width:380px;font-size:20px}
+.cx-libs{left:80px;width:1120px;top:596px}
+.cx-lib{height:92px}
+
+/* Logos de Jupyter y nube en HTML/CSS (sin SVG escalado) */
+.cx-jup{position:relative;width:230px;height:150px}
+.cx-jup .a1,.cx-jup .a2{position:absolute;left:14px;width:202px;height:62px;box-sizing:border-box;border:0 solid #f37726}
+.cx-jup .a1{top:22px;border-top-width:12px;border-radius:101px 101px 0 0/62px 62px 0 0}
+.cx-jup .a2{bottom:22px;border-bottom-width:12px;border-radius:0 0 101px 101px/0 0 62px 62px}
+.cx-jup span{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:44px;line-height:1;color:#6b6b6b}
+.cx-jup u{position:absolute;border-radius:50%;background:#9e9e9e}
+.cx-cloud{position:relative;width:200px;height:150px}
+.cx-cloud i{position:absolute;background:#f9ab00;border-radius:50%;display:block}
+.cx-cloud b{position:absolute;left:0;right:0;top:58px;text-align:center;font-size:72px;line-height:1;color:#fff}
+
+/* ---- Diapositivas de material ---- */
+.cx-fname{position:absolute;left:0;width:1280px;top:196px;text-align:center;font-family:'Courier New',monospace;font-size:26px;font-weight:700;color:#e8710a}
+.cx-desc{position:absolute;left:140px;width:1000px;top:244px;margin:0;font-size:27px;line-height:1.4;text-align:center;color:#1f2937}
+.cx-linkbox{position:absolute;left:0;width:1280px;top:392px;text-align:center}
+.cx-btn{display:inline-block;background:#1b7da1;color:#fff;font-size:26px;font-weight:700;padding:12px 32px;border-radius:10px;text-decoration:none;box-shadow:0 3px 8px rgba(0,0,0,.2)}
+.cx-url2{margin-top:10px;font-family:'Courier New',monospace;font-size:17px;color:#475569}
+.cx-copy{position:absolute;left:100px;width:1080px;top:510px;display:flex;align-items:center;gap:32px}
+.cx-copy img{position:static;width:484px;height:157px;flex:none;border-radius:10px;box-shadow:0 3px 12px rgba(0,0,0,.3)}
+.cx-note2{flex:1;box-sizing:border-box;padding:16px 20px;background:#fef3c7;border-left:5px solid #f9ab00;border-radius:8px;font-size:23px;line-height:1.35;color:#1f2937}
+.cx-openrow{position:absolute;left:0;width:1280px;top:196px;text-align:center}
+.cx-linkbox{top:410px}
+
+/* ---- Tutoriales ---- */
+.cx-steps{position:absolute;left:150px;width:980px;top:206px;display:flex;flex-direction:column;gap:14px}
+.cx-step{display:flex;align-items:center;gap:20px;min-height:80px;padding:8px 24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);font-size:25px;line-height:1.3;color:#1f2937}
+.cx-step .cx-bd{position:static;flex:none}
+.cx-stepnote{position:absolute;left:150px;width:980px;top:628px;flex:none;font-size:22px}
+.cx-code{position:absolute;left:250px;width:780px;top:290px;margin:0;box-sizing:border-box;padding:22px 30px;background:#1e293b;color:#e2e8f0;border-radius:12px;font-family:'Courier New',monospace;font-size:28px;line-height:1.5;box-shadow:0 3px 10px rgba(0,0,0,.25)}
